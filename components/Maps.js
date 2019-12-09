@@ -13,11 +13,11 @@ export default class Maps extends Component {
     errorMessage: null,
     timePassed:false,
     markers:[
-      {id:1,latlng:-24.176520,lonlng:-46.817273,pin:pinHostital},
-      {id:2,latlng:-24.179153,lonlng:-46.817530,pin:pinHostital}, 
-      {id:3,latlng:-24.178370,lonlng:-46.819762,pin:pinHostital}
+     
     ], 
+    
   };
+
 
   componentWillMount() {
     if (Platform.OS === 'android' && !Constants.isDevice) {
@@ -40,7 +40,6 @@ export default class Maps extends Component {
     let location = await Location.getCurrentPositionAsync({});
     this.setState({ location });
   };
- 
   
  render() {
   const MapStyle = [
@@ -102,8 +101,11 @@ export default class Maps extends Component {
     
       return (
         <View style={styles.container}>
-        
+
           <MapView 
+          //arrumar essa parte , salvar cordanadas do click no state e fazer aparecer opções de pin (policial,medico,etc...)
+            onPress={ (event) => console.log({"cordenadas":event.nativeEvent.coordinate,"id":Math.floor(Math.random() * 100000000)}) }
+
             initialRegion={{
               latitude, 
               longitude,
@@ -124,10 +126,10 @@ export default class Maps extends Component {
                 key={marker.id}
                 style={styles.pin}
                 coordinate={{
-                  latitude: marker.latlng, 
-                  longitude: marker.lonlng,
+                  latitude: marker.cordenadas.latitude, 
+                  longitude: marker.cordenadas.longitude,
                 }}
-                image={marker.pin}
+                image={pinHostital}
               >
               </Marker>
             ))}
