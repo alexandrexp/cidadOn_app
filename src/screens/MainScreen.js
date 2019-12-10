@@ -12,8 +12,10 @@ import fundo from "../images/17981.png";
 import logo from "../images/logobranco.png";
 
 export default function MainScreen({ navigation }) {
-  handleRegister = () => {
-    navigation.navigate("SignUp");
+  handleNavigation = screen => {
+    if (screen !== "SigninScreen" && screen !== "SignupScreen") return;
+
+    navigation.navigate(screen);
   };
 
   return (
@@ -26,10 +28,16 @@ export default function MainScreen({ navigation }) {
           />
         </View>
         <View style={styles.form}>
-          <TouchableOpacity style={styles.button1} onPress={handleRegister}>
+          <TouchableOpacity
+            style={styles.button1}
+            onPress={() => handleNavigation("SignupScreen")}
+          >
             <Text style={styles.buttonText}>Quero me cadastrar</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button2}>
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => handleNavigation("SigninScreen")}
+          >
             <Text style={styles.buttonText}>Já sou cadastrado</Text>
           </TouchableOpacity>
           <Text style={styles.label}>esqueci a senha</Text>
@@ -53,7 +61,7 @@ const styles = StyleSheet.create({
   label: {
     fontWeight: "100",
     alignSelf: "center",
-    color: "rgb(102, 204, 255)",
+    color: "#FFF",
     marginBottom: 8
     // textDecorationLine: "underline"
   },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -12,7 +12,16 @@ import {
 import fundo from "../images/17981.png";
 import logo from "../images/logobranco.png";
 
-export default function SignupScreen() {
+export default function SigninScreen({ navigation }) {
+  const [getCPF, setCPF] = useState("");
+  const [getPW, setPW] = useState("");
+
+  handleSignin = () => {
+    if (getCPF === "123" && getPW === "123") {
+      navigation.navigate("HomeScreen");
+    }
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground source={fundo} style={{ width: "100%", height: "100%" }}>
@@ -23,23 +32,27 @@ export default function SignupScreen() {
           />
         </View>
         <View style={styles.form}>
-          <Text style={styles.labelGreen}>Cadastro</Text>
+          <Text style={styles.labelGreen}>Entrar</Text>
           <TextInput
             style={styles.input}
             placeholder="CPF"
             placeholderTextColor="white"
-            autoCapitalize="characters"
+            autoCapitalize="none"
             autoCorrect={false}
+            value={getCPF}
+            onChangeText={t => setCPF(t)}
           />
           <TextInput
             style={styles.input}
+            value={getPW}
             placeholder="Senha"
             placeholderTextColor="white"
-            autoCapitalize="characters"
+            autoCapitalize="none"
             autoCorrect={false}
+            onChangeText={t => setPW(t)}
           />
           <Text style={styles.label}>esqueci a senha</Text>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={handleSignin}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
         </View>

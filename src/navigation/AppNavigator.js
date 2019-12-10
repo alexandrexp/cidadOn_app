@@ -1,11 +1,21 @@
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 
-import TelaCadastro from "../screens/SignupScreen";
-import TelaPrincipal from "../screens/MainScreen";
+import SignupScreen from "../screens/SignupScreen";
+import SigninScreen from "../screens/SigninScreen";
+import MainScreen from "../screens/MainScreen";
+import HomeScreen from "../screens/HomeScreen";
 
 export default createAppContainer(
-  createSwitchNavigator({
-    Main: TelaPrincipal,
-    SignUp: TelaCadastro
-  })
+  createSwitchNavigator(
+    {
+      MainScreen,
+      SignupScreen,
+      SigninScreen,
+      HomeScreen
+    },
+    {
+      initialRouteName: "MainScreen",
+      backBehavior: "initialRoute"
+    }
+  )
 );
