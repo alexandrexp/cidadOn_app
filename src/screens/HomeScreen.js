@@ -2,7 +2,9 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 
-export default class HomeScreen extends React.Component {
+import Maps from "../components/Maps";
+
+class Drawer extends React.Component {
   static navigationOptions = {
     drawerLabel: 'Inicio',
     drawerIcon: ({focused, tintColor}) => (
@@ -22,4 +24,7 @@ export default class HomeScreen extends React.Component {
       </View>
     );
   }
+
+export default function HomeScreen() {
+  return <Maps />;
 }
