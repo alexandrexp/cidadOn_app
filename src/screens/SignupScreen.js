@@ -1,15 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, Image, TextInput, TouchableOpacity } from 'react-native';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  TextInput,
+  TouchableOpacity
+} from "react-native";
 
-import fundo from '../images/17981.png';
-import logo from '../images/logobranco.png';
+import fundo from "../images/17981.png";
+import logo from "../images/logobranco.png";
 
-export default function TelaCadastro() {
+export default function SignupScreen() {
   return (
     <View style={styles.container}>
-      <ImageBackground source={fundo} style={{ width: '100%', height: '100%' }}>
+      <ImageBackground source={fundo} style={{ width: "100%", height: "100%" }}>
         <View style={styles.logo}>
-          <Image source={logo} style={{ width: 200, height: 120, marginTop: 80 }} />
+          <Image
+            source={logo}
+            style={{ width: 200, height: 120, marginTop: 80 }}
+          />
         </View>
         <View style={styles.form}>
           <Text style={styles.labelGreen}>Cadastro</Text>
@@ -17,14 +28,14 @@ export default function TelaCadastro() {
             style={styles.input}
             placeholder="CPF"
             placeholderTextColor="white"
-            autoCapitalize='characters'
+            autoCapitalize="characters"
             autoCorrect={false}
           />
           <TextInput
             style={styles.input}
             placeholder="Senha"
             placeholderTextColor="white"
-            autoCapitalize='characters'
+            autoCapitalize="characters"
             autoCorrect={false}
           />
           <Text style={styles.label}>esqueci a senha</Text>
@@ -40,51 +51,51 @@ export default function TelaCadastro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center"
   },
   form: {
-    alignSelf: 'stretch',
+    alignSelf: "stretch",
     paddingHorizontal: 30,
-    marginTop: 60,
+    marginTop: 60
   },
   label: {
-    fontWeight: 'bold',
-    color: 'rgb(61, 106, 207)',
+    fontWeight: "bold",
+    color: "rgb(61, 106, 207)",
     marginBottom: 8,
-    textDecorationLine: 'underline',
+    textDecorationLine: "underline"
   },
   labelGreen: {
-    fontWeight: 'bold',
-    color: 'rgb(0, 184, 108)',
+    fontWeight: "bold",
+    color: "rgb(0, 184, 108)",
     marginBottom: 8,
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center"
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
     paddingHorizontal: 20,
     fontSize: 16,
-    color: '#444',
+    color: "#444",
     height: 44,
     marginBottom: 20,
     borderRadius: 2
   },
   button: {
     height: 42,
-    backgroundColor: 'rgb(0, 184, 108)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "rgb(0, 184, 108)",
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 2,
-    marginBottom: 20,
+    marginBottom: 20
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 16,
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16
   },
   logo: {
-    alignItems: 'center',
-  },
+    alignItems: "center"
+  }
 });
